@@ -1,10 +1,24 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/7EVNAYx2)
-# ClientServerBasics (2.0)
-Starter code for the basic client-server assignment
+# Calculadora Remota via Sockets (Protocolo Binário)
 
+Este projeto consiste em um sistema cliente-servidor desenvolvido em Python para a realização de operações matemáticas remotas utilizando sockets TCP e comunicação binária.
 
-Este template corresponde ao exemplo da Fig. 2.3 do livro. O exercício consiste em acrescentar funcionalidade ao servidor para torná-lo mais útil. Essa funcionalidade deve ser acessível aos clientes. Por exemplo, o servidor pode ser uma espécie de calculadora remota. O cliente passa dois valores numéricos, juntamente com o nome de uma operação (ex.: add, subtract, multiply, divide) e o servidor executa a operação respectiva e retorna seu resultado para o cliente. Você pode implementar um servidor com outras funcionalidades (diferente da calculadora). O imporante é que ele ofereça pelo menos três operações diferentes que os clientes podem utilizar remotamente, passando dados para serem processados e recebendo o resultado desse processamento como resposta.
+## Funcionalidades
+O servidor processa quatro operações principais enviadas pelo cliente:
+* **Soma (`+`)**
+* **Subtração (`-`)**
+* **Multiplicação (`*`)**
+* **Divisão (`/`)**
 
-Tarefa individual.
+## Diferencial Técnico: Comunicação Binária
+Diferente de implementações baseadas em strings, este sistema utiliza o módulo `struct` do Python para empacotar os dados em formato binário (Network Byte Order).
+* **Requisição (17 bytes):** 1 byte para a operação (char) e 16 bytes para dois números de precisão dupla (double).
+* **Resposta (8 bytes):** Retorno do resultado diretamente como um double.
 
-Incluir um Readme descritivo do sistema implementado.
+## Exemplos de entradas
+124 + 95
+
+5 * 85.6
+
+12 / 57
+
+98.0048 - 336.756
